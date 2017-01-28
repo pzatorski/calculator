@@ -4,7 +4,6 @@ import ButtonContainer from './ButtonContainer';
 
 class App extends Component {
   state = {
-    age: 1,
     display: ''
   };
 
