@@ -3,7 +3,43 @@ import Display from './Display';
 import ButtonContainer from './ButtonContainer';
 
 class App extends Component {
+  state = {
+    display: ''
+  };
+
+  add = (numberOne, numberTwo) => {
+    return numberOne + numberTwo;
+  }
+
+  minus = (numberOne, numberTwo) => {
+    return numberOne - numberTwo;
+  }
+
+  multiple = (numberOne, numberTwo) => {
+    return numberOne * numberTwo;
+  }
+
+  divide = (numberOne, numberTwo) => {
+    return numberOne / numberTwo;
+  }
+
+  handleNumberPress = (value) => {
+    this.setState((prevState) => ({
+      display: `${prevState.display}${value}`
+    }))
+  }
+
+  handleOperationPress = (value) => {
+    if (value === 'AC') {
+      this.setState({
+        display: ''
+      })
+    }
+
+  }
+
   render() {
+
     return (
       <div
         style={{
@@ -14,9 +50,12 @@ class App extends Component {
           width: 410,
         }}
       >
-        <Display />
+        <Display displayValue={this.state.display}/>
 
-        <ButtonContainer />
+        <ButtonContainer
+          numberPress={this.handleNumberPress}
+          operationPress={this.handleOperationPress}
+        />
       </div>
     );
   }

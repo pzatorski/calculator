@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 
 class Button extends Component {
   handleClick = () => {
-    console.log(this.props.label)
+    if (this.props.numberPress) {
+      this.props.numberPress(this.props.label);
+    } else if (this.props.operationPress) {
+      this.props.operationPress(this.props.label);
+    }
+
   }
 
   render() {

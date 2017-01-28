@@ -13,7 +13,7 @@ class Display extends Component {
           alignItems: 'center',
         }}
       >
-        display
+        {this.props.displayValue}
       </div>
     );
   }
